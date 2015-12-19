@@ -29,11 +29,6 @@
 				</div><!-- .entry-meta -->
 				<?php endif; ?>
 			</header><!-- .entry-header -->
-			
-            <a href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>" >
-                    <?php the_post_thumbnail( 'activello-featured', array( 'class' => 'single-featured' )); ?>
-            </a>
-			
 			<div class="entry-content">
 
 				<?php the_content(); ?>

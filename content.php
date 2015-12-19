@@ -42,15 +42,6 @@
 			</div><!-- .entry-summary -->
 			<?php else : ?>
 			<div class="entry-content">
-
-				<?php
-				if ( get_the_excerpt() != "" ) :
-					the_excerpt();
-				else :
-					the_content();
-				endif;
-			  ?>
-
 				<?php
 				wp_link_pages( array(
 					'before'            => '<div class="page-links">'.esc_html__( 'Pages:', 'activello' ),
