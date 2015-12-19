@@ -31,17 +31,26 @@
 				<?php endif; ?>
 			</header><!-- .entry-header -->
 
-            <a href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>" >
-                    <?php the_post_thumbnail( 'activello-featured', array( 'class' => 'single-featured' )); ?>
-            </a>
-
 			<?php if ( is_search() ) : // Only display Excerpts for Search ?>
 			<div class="entry-summary">
+				<a href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>" >
+        			<?php the_post_thumbnail( 'activello-featured', array( 'class' => 'single-featured' )); ?>
+    			</a>
 				<?php the_excerpt(); ?>
 				<p><a class="btn btn-default read-more" href="<?php the_permalink(); ?>"><?php esc_html_e( 'Read More', 'activello' ); ?></a></p>
 			</div><!-- .entry-summary -->
 			<?php else : ?>
 			<div class="entry-content">
+				<?php
+					if ( get_theme_mod( 'activello_excerpts', 1 ) && get_the_excerpt() != "" ) : ?>
+		            	<a href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>" >
+                    		<?php the_post_thumbnail( 'activello-featured', array( 'class' => 'single-featured' )); ?>
+            			</a>
+						<?php the_excerpt();
+					else :
+						the_content();
+					endif;
+				?>
 				<?php
 				wp_link_pages( array(
 					'before'            => '<div class="page-links">'.esc_html__( 'Pages:', 'activello' ),
@@ -53,7 +62,7 @@
 						) );
 				?>
 
-				<?php if( ! is_single() ) : ?>
+				<?php if( ! is_single() && get_theme_mod( 'activello_excerpts', 1 ) ) : ?>
 				<div class="read-more">
 					<a href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>"><?php esc_html_e( 'Read More', 'activello' ); ?></a>
 				</div>
