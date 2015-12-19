@@ -58,12 +58,11 @@
 					<a href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>"><?php esc_html_e( 'Read More', 'activello' ); ?></a>
 				</div>
 				<?php endif; ?>
-
-                                <?php if ( ! post_password_required() && ( comments_open() || '0' != get_comments_number() ) ) : ?>
-                                    <div class="entry-footer">
-					<span class="comments-link"><?php comments_popup_link( esc_html__( 'Leave a comment', 'activello' ), esc_html__( '1 Comment', 'activello' ), esc_html__( '% Comments', 'activello' ) ); ?></span>
-                                    </div><!-- .entry-footer -->
-                                <?php endif; ?>
+				<?php if ( ! post_password_required() && ( comments_open() || '0' != get_comments_number() ) ) : ?>
+					<div class="entry-footer">
+						<span class="comments-link"><?php comments_popup_link( esc_html__( 'Leave a comment', 'activello' ), esc_html__( '1 Comment', 'activello' ), esc_html__( '% Comments', 'activello' ) ); ?></span>
+					</div><!-- .entry-footer -->
+				<?php endif; ?>
 			</div><!-- .entry-content -->
 			<?php endif; ?>
 		</div>
